@@ -38,7 +38,7 @@ const AdminProfile = () => {
             </Typography>
           </Box>
         )}
-        {admin && admin.addedMovies.length > 0 && (
+        {admin && admin.addedConsultants.length > 0 && (
           <Box width={"70%"} display="flex" flexDirection={"column"}>
             <Typography
               variant="h3"
@@ -46,7 +46,7 @@ const AdminProfile = () => {
               textAlign="center"
               padding={2}
             >
-              Added Movies
+              Added Consultants
             </Typography>
             <Box
               margin={"auto"}
@@ -55,7 +55,7 @@ const AdminProfile = () => {
               width="80%"
             >
               <List>
-                {admin.addedMovies.map((movie, index) => (
+                {admin.addedConsultants.map((Consultant, index) => (
                   <ListItem
                     sx={{
                       bgcolor: "#00d386",
@@ -67,7 +67,7 @@ const AdminProfile = () => {
                     <ListItemText
                       sx={{ margin: 1, width: "auto", textAlign: "left" }}
                     >
-                      Movie: {movie.title}
+                      Consultant: {Consultant.name}
                     </ListItemText>
                   </ListItem>
                 ))}

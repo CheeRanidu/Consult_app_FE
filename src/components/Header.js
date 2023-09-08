@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import MovieIcon from "@mui/icons-material/Movie";
 import { Box } from "@mui/system";
-import { getAllMovies } from "../api-helpers/api-helpers";
+import { getAllConsultants } from "../api-helpers/api-helpers";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { adminActions, userActions } from "../store";
@@ -23,7 +23,7 @@ const Header = () => {
   const [value, setValue] = useState();
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    getAllMovies()
+    getAllConsultants()
       .then((data) => setMovies(data.movies))
       .catch((err) => console.log(err));
   }, []);
@@ -43,9 +43,9 @@ const Header = () => {
     <AppBar position="sticky" sx={{ bgcolor: "#2b2d42" }}>
       <Toolbar>
         <Box width={"20%"}>
-          <IconButton LinkComponent={Link} to="/">
+          {/* <IconButton LinkComponent={Link} to="/">
             <MovieIcon />
-          </IconButton>
+          </IconButton> */}
         </Box>
         <Box width={"30%"} margin="auto">
           <Autocomplete
@@ -57,7 +57,7 @@ const Header = () => {
                 sx={{ input: { color: "white" } }}
                 variant="standard"
                 {...params}
-                placeholder="Search Acroos Multiple Movies"
+                placeholder="Search Consultants"
               />
             )}
           />
@@ -69,7 +69,7 @@ const Header = () => {
             value={value}
             onChange={(e, val) => setValue(val)}
           >
-            <Tab LinkComponent={Link} to="/movies" label="Consultants" />
+            <Tab LinkComponent={Link} to="/consultants" label="Consultants" />
             {!isAdminLoggedIn && !isUserLoggedIn && (
               <>
                 <Tab label="Admin" LinkComponent={Link} to="/admin" />
@@ -89,7 +89,7 @@ const Header = () => {
             )}
             {isAdminLoggedIn && (
               <>
-                <Tab label="Add Movie" LinkComponent={Link} to="/add" />
+                <Tab label="Add Consultant" LinkComponent={Link} to="/add" />
                 <Tab label="Profile" LinkComponent={Link} to="/user-admin" />
                 <Tab
                   onClick={() => logout(true)}
