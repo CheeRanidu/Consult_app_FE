@@ -71,10 +71,10 @@ const UserProfile = () => {
                                         }}
                                     >
                                         <ListItemText sx={{ margin: 1, width: 'auto', textAlign: 'left' }}>
-                                            Movie: {booking.movie.title}
+                                            consultant Name: {booking?.consultant?.name}
                                         </ListItemText>
                                         <ListItemText sx={{ margin: 1, width: 'auto', textAlign: 'left' }}>
-                                            Seat: {booking.seatNumber}
+                                            Time Slot: {booking?.time}
                                         </ListItemText>
                                         <ListItemText sx={{ margin: 1, width: 'auto', textAlign: 'left' }}>
                                             Date: {new Date(booking.date).toDateString()}

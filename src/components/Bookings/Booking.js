@@ -8,7 +8,8 @@ const Booking = () => {
     const [consultants, setConsultants] = useState();
     const [inputs, setInputs] = useState({ time: '', date: '' });
     const id = useParams().id;
-    console.log(id);
+
+    console.log('ssss id', id);
 
     useEffect(() => {
         getConsultantsDetails(id)
@@ -19,6 +20,7 @@ const Booking = () => {
             .catch((err) => console.log(err));
     }, [id]);
     const handleChange = (e) => {
+        console.log(e.target);
         setInputs((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
@@ -27,7 +29,7 @@ const Booking = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inputs);
-        newBooking({ ...inputs, consultants: consultants._id })
+        newBooking({ ...inputs, consultants: consultants._id, consultant: id })
             .then((res) => console.log(res))
             .catch((err) => console.log(err));
         console.log('fn', { ...inputs, consultants: consultants._id });
@@ -70,8 +72,8 @@ const Booking = () => {
                                 <Box padding={5} margin={'auto'} display="flex" flexDirection={'column'}>
                                     <FormLabel>Time Slot</FormLabel>
                                     <TextField
-                                        name="seatNumber"
-                                        value={inputs.seatNumber}
+                                        name="time"
+                                        value={inputs.time}
                                         onChange={handleChange}
                                         type={'number'}
                                         margin="normal"
