@@ -100,7 +100,7 @@ const AddMovie = () => {
               Add
             </Button>
           </Box>
-          <FormLabel sx={labelProps}>Featured</FormLabel>
+          {/* <FormLabel sx={labelProps}>Featured</FormLabel>
           <Checkbox
             name="fetaured"
             checked={inputs.featured}
@@ -111,7 +111,7 @@ const AddMovie = () => {
               }))
             }
             sx={{ mr: "auto" }}
-          />
+          /> */}
           <Button
             type="submit"
             variant="contained"
@@ -124,7 +124,7 @@ const AddMovie = () => {
               },
             }}
           >
-            Add New Movie
+            Add New Consultant
           </Button>
         </Box>
       </form>
