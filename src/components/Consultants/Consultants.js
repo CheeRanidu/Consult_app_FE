@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { getAllConsultants } from '../../api-helpers/api-helpers';
-import MovieItem from './MovieItem';
+import CustomCard from './CustomCard';
 
 const ConsultantsComp = () => {
     const [Consultants, setConsultants] = useState();
@@ -21,9 +21,10 @@ const ConsultantsComp = () => {
                 variant="h4"
                 padding={2}
                 width="40%"
-                bgcolor={'#900C3F'}
+                bgcolor={'#00d386'}
                 color="white"
                 textAlign={'center'}
+                sx={{ borderRadius: '12px' }}
             >
                 All Consultants
             </Typography>
@@ -39,7 +40,7 @@ const ConsultantsComp = () => {
                     Consultants.map((Consultant, index) => {
                         console.log('sss', Consultant);
                         return (
-                            <MovieItem
+                            <CustomCard
                                 key={index}
                                 id={Consultant._id}
                                 jobs={Consultant.jobs}

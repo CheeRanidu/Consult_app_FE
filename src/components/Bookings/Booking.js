@@ -3,10 +3,12 @@ import { Box } from '@mui/system';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getConsultantsDetails, newBooking } from '../../api-helpers/api-helpers';
+import CustomSnackBars from '../snackBar/SnackBar';
 
 const Booking = () => {
     const [consultants, setConsultants] = useState();
     const [inputs, setInputs] = useState({ time: '', date: '' });
+    const [triggerAlert, setTriggerAlert] = useState(false);
     const id = useParams().id;
 
     console.log('ssss id', id);
@@ -30,7 +32,7 @@ const Booking = () => {
         e.preventDefault();
         console.log(inputs);
         newBooking({ ...inputs, consultants: consultants._id, consultant: id })
-            .then((res) => console.log(res))
+            .then((res) => setTriggerAlert(true))
             .catch((err) => console.log(err));
         console.log('fn', { ...inputs, consultants: consultants._id });
     };
@@ -40,9 +42,24 @@ const Booking = () => {
     }, [consultants]);
 
     return (
-        <div>
+        <Fragment>
             {consultants && (
                 <Fragment>
+                    <div
+                        style={{
+                            /*  position: 'absolute', */
+                            width: '100vw',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            background: 'pink',
+                        }}
+                    >
+                        <CustomSnackBars
+                            message="Consultant Booked "
+                            snackBarType="success"
+                            snackBarOpen={triggerAlert}
+                        />
+                    </div>
                     <Typography padding={3} fontFamily="fantasy" variant="h4" textAlign={'center'}>
                         Book Your consultant {consultants.title}
                     </Typography>
@@ -97,7 +114,7 @@ const Booking = () => {
                     </Box>
                 </Fragment>
             )}
-        </div>
+        </Fragment>
     );
 };
 

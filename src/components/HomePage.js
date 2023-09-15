@@ -2,7 +2,7 @@ import { Box, Button, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAllConsultants } from '../api-helpers/api-helpers';
-import MovieItem from './Consultants/MovieItem';
+import CustomCard from './Consultants/CustomCard';
 import { getLogInToken } from '../util/localStorage';
 
 const HomePage = () => {
@@ -46,7 +46,7 @@ const HomePage = () => {
                     movies
                         .slice(0, 4)
                         .map((movie, index) => (
-                            <MovieItem
+                            <CustomCard
                                 id={movie.id}
                                 name={movie.name}
                                 country={movie.country}
