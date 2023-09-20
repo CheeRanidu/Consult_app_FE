@@ -13,7 +13,7 @@ const Admin = () => {
         dispatch(adminActions.login());
         localStorage.setItem('adminId', data.id);
         localStorage.setItem('token', data.token);
-        navigate('/');
+        navigate('/consultants');
     };
     const getData = (data) => {
         console.log('Admin', data);
