@@ -34,21 +34,18 @@ function App() {
                     <Route path="/Consultants" element={<ConsultantsComp />} />
                     {!isUserLoggedIn && !isAdminLoggedIn && (
                         <>
-                            {' '}
                             <Route path="/admin" element={<Admin />} />
                             <Route path="/auth" element={<Auth />} />
                         </>
                     )}
                     {isUserLoggedIn && !isAdminLoggedIn && (
                         <>
-                            {' '}
                             <Route path="/user" element={<UserProfile />} />
                             <Route path="/booking/:id" element={<Booking />} />
                         </>
                     )}
                     {isAdminLoggedIn && !isUserLoggedIn && (
                         <>
-                            {' '}
                             <Route path="/add" element={<AddMovie />} />
                             <Route path="/user-admin" element={<AdminProfile />} />{' '}
                         </>
