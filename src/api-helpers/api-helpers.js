@@ -143,3 +143,20 @@ export const getAdminById = async () => {
     const resData = await res.data;
     return resData;
 };
+
+export const getConsultantBooking = async (input) => {
+    const { date, consultantId } = input;
+    const res = await axios
+        .post('/bookings/getBooking', {
+            consultantId,
+            date,
+        })
+        .catch((err) => console.log(err));
+
+    if (res.status !== 200) {
+        return console.log('Unexpected Error Occurred');
+    }
+
+    const resData = await res.data;
+    return resData;
+};

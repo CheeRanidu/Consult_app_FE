@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  AppBar,
-  Autocomplete,
-  IconButton,
-  Tab,
-  Tabs,
-  TextField,
-  Toolbar,
-} from "@mui/material";
-import MovieIcon from "@mui/icons-material/Movie";
+import { AppBar, Tab, Tabs, Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 import { getAllConsultants } from "../api-helpers/api-helpers";
 import { Link, useNavigate } from "react-router-dom";
@@ -48,7 +39,7 @@ const Header = () => {
           </IconButton> */}
         </Box>
         <Box width={"30%"} margin="auto">
-          <Autocomplete
+          {/* <Autocomplete
             onChange={handleChange}
             freeSolo
             options={movies && movies.map((option) => option.title)}
@@ -60,7 +51,7 @@ const Header = () => {
                 placeholder="Search Consultants"
               />
             )}
-          />
+          /> */}
         </Box>
         <Box display={"flex"}>
           <Tabs

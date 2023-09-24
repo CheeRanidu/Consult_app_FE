@@ -1,13 +1,7 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  FormLabel,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { addMovie } from "../../api-helpers/api-helpers";
+import CustomSnackBars from "../snackBar/SnackBar";
 const labelProps = {
   mt: 1,
   mb: 1,
@@ -22,6 +16,7 @@ const AddMovie = () => {
   });
   const [jobs, setjobs] = useState([]);
   const [job, setjob] = useState("");
+  const [triggerAlert, setTriggerAlert] = useState(false);
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -32,11 +27,28 @@ const AddMovie = () => {
     e.preventDefault();
     console.log(inputs, jobs);
     addMovie({ ...inputs, jobs })
-      .then((res) => console.log(res))
+      .then((res) => {
+        setTriggerAlert(true);
+      })
       .catch((err) => console.log(err));
   };
   return (
     <div>
+      <div
+        style={{
+          /*  position: 'absolute', */
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          background: "pink",
+        }}
+      >
+        <CustomSnackBars
+          message="New Consultant Added "
+          snackBarType="success"
+          snackBarOpen={triggerAlert}
+        />
+      </div>
       <form onSubmit={handleSubmit}>
         <Box
           width={"50%"}
