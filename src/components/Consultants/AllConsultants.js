@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { getAllMovies } from "../../helpers/api-helpers";
 import CradLayout from "../HomePage/CradLayout";
 
-const AllMovies = () => {
+const AllConsultants = () => {
   const [movies, setMovies] = useState();
   useEffect(() => {
     getAllMovies()
@@ -40,4 +40,4 @@ const AllMovies = () => {
   );
 };
 
-export default AllMovies;
+export default AllConsultants;

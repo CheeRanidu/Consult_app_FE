@@ -1,12 +1,12 @@
 import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { addMovie } from "../../api-helpers/api-helpers";
+import { addNewConsultant } from "../../api-helpers/api-helpers";
 import CustomSnackBars from "../snackBar/SnackBar";
 const labelProps = {
   mt: 1,
   mb: 1,
 };
-const AddMovie = () => {
+const AddConsultant = () => {
   const [inputs, setInputs] = useState({
     name: "",
     description: "",
@@ -26,7 +26,7 @@ const AddMovie = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs, jobs);
-    addMovie({ ...inputs, jobs })
+    addNewConsultant({ ...inputs, jobs })
       .then((res) => {
         setTriggerAlert(true);
       })
@@ -144,4 +144,4 @@ const AddMovie = () => {
   );
 };
 
-export default AddMovie;
+export default AddConsultant;
