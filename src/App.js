@@ -46,7 +46,7 @@ function App() {
           )}
           {isAdminLoggedIn && !isUserLoggedIn && (
             <>
-              <Route path="/add" element={<AddMovie />} />
+              <Route path="/add" element={<AddConsultant />} />
               <Route path="/user-admin" element={<AdminProfile />} />{" "}
             </>
           )}

@@ -8,7 +8,7 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MovieItem = ({ name, country, jobs, id }) => {
+const Item = ({ name, country, jobs, id }) => {
   return (
     <Card
       sx={{
@@ -55,4 +55,4 @@ const MovieItem = ({ name, country, jobs, id }) => {
   );
 };
 
-export default MovieItem;
+export default Item;
